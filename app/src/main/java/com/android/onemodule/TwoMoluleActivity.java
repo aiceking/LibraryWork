@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.android.cloud.libraryinit.BaseLibraryInitHelp;
 import com.android.onemodule.api.NetApiService;
+import com.android.onemodule.libraryinit.WorkLibraryInitHelp;
 import com.android.onemodule.ui.MainActivity;
 
 import butterknife.BindView;
@@ -28,14 +29,14 @@ public class TwoMoluleActivity extends AppCompatActivity {
 
     @OnClick({R2.id.btn_ceshi, R2.id.btn_shengchan})
     public void onViewClicked(View view) {
-        BaseLibraryInitHelp<NetApiService> baseLibraryInitHelp=BaseLibraryInitHelp.getInstance();
         int i = view.getId();
-        if (i == R.id.btn_ceshi) {/**切换到测试站*/
-            baseLibraryInitHelp.changeDebug(true, NetApiService.class);
+        if (i == R.id.btn_ceshi) {
+            /**切换到测试站*/
+            WorkLibraryInitHelp.getInstance().changeDebug(true);
 
-        } else if (i == R.id.btn_shengchan) {/**切换到生产站*/
-            baseLibraryInitHelp.changeDebug(false, NetApiService.class);
-
+        } else if (i == R.id.btn_shengchan) {
+            /**切换到生产站*/
+            WorkLibraryInitHelp.getInstance().changeDebug(false);
         }
         startActivity(new Intent(this, MainActivity.class));
     }

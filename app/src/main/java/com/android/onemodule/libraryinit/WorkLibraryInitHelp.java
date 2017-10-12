@@ -38,6 +38,9 @@ public class WorkLibraryInitHelp {
     public BaseLibraryInitHelp getBaseLibraryInitHelp() {
         return baseLibraryInitHelp;
     }
+    public void changeDebug(boolean debug){
+        baseLibraryInitHelp.changeDebug(debug,NetApiService.class);
+    }
     public void setBaseLibraryInitHelp(BaseLibraryInitHelp baseLibraryInitHelp) {
         this.baseLibraryInitHelp = baseLibraryInitHelp;
     }
