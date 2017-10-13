@@ -17,4 +17,10 @@
         android:gravity="center"
         android:id="@+id/btn_shengchan"
         android:text="生产站"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/btn_module"
+        android:text="跳转到业务模块二"/>
 </LinearLayout>
