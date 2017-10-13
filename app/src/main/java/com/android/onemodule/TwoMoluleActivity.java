@@ -14,8 +14,7 @@ import com.android.onemodule.ui.MainActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-@Route(path = "/workModule/1")
+@Route(path = "/workModule/1", group = "LibraryWork")
 public class TwoMoluleActivity extends AppCompatActivity {
     @BindView(R2.id.btn_ceshi)
     Button btnCeshi;
@@ -53,7 +52,7 @@ public class TwoMoluleActivity extends AppCompatActivity {
             WorkLibraryInitHelp.getInstance().changeDebug(false);
             startActivity(new Intent(this, MainActivity.class));
         }else if (i==R.id.btn_module){
-            ARouter.getInstance().build("/workModule_other/2").withString("test","我要看超人").navigation(this, 5);
+            ARouter.getInstance().build("/workModule_other/1","LibraryWork_other").withString("test","我要看超人").navigation(this, 5);
         }
     }
 }
