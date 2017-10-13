@@ -53,7 +53,7 @@ public class TwoMoluleActivity extends AppCompatActivity {
             WorkLibraryInitHelp.getInstance().changeDebug(false);
             startActivity(new Intent(this, MainActivity.class));
         }else if (i==R.id.btn_module){
-            ARouter.getInstance().build("/workModule/2").withString("test","业务模块一").navigation(this, 5);
+            ARouter.getInstance().build("/workModule/2").withString("test","我要看超人").navigation(this, 5);
         }
     }
 }
