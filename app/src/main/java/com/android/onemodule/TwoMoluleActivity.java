@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.android.onemodule.libraryinit.WorkLibraryInitHelp;
 import com.android.onemodule.ui.MainActivity;
 
@@ -15,7 +13,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-@Route(path = "/workModule/1")
 public class TwoMoluleActivity extends AppCompatActivity {
     @BindView(R2.id.btn_ceshi)
     Button btnCeshi;
@@ -53,7 +50,9 @@ public class TwoMoluleActivity extends AppCompatActivity {
             WorkLibraryInitHelp.getInstance().changeDebug(false);
             startActivity(new Intent(this, MainActivity.class));
         }else if (i==R.id.btn_module){
-            ARouter.getInstance().build("/workModule_other/2").withString("test","我要看超人").navigation(this, 5);
+            Intent intent=WorkLibraryInitHelp.getInstance().getIntentByType(this,"test");
+            intent.putExtra("test","业务模块一传入值：我要看超人");
+            startActivityForResult(intent,5);
         }
     }
 }

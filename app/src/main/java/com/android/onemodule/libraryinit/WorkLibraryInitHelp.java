@@ -1,5 +1,7 @@
 package com.android.onemodule.libraryinit;
 
+import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -22,6 +24,18 @@ public class WorkLibraryInitHelp {
     private static WorkLibraryInitHelp workLibraryInitHelp;
     private BaseLibraryInitHelp baseLibraryInitHelp;
     private HashMap<ApiType,String> hashMap;
+
+    public void setActivityMap(HashMap<String, Class> activityMap) {
+        this.activityMap = activityMap;
+    }
+    public  Intent getIntentByType(Context context, String type){
+        if (activityMap.containsKey(type)){
+        return  new Intent(context,activityMap.get(type));
+        }else{
+           return null;
+        }
+    }
+    private HashMap<String,Class> activityMap;
     private WorkLibraryInitHelp(){
         hashMap=new HashMap<>();
     }
